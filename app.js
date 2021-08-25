@@ -1,21 +1,24 @@
 const express = require ("express");
 const app =  express();
 const { getFirebase } = require("./utils/firebase");
+const fs = require("fs");
 
 const fb = getFirebase();
 
+//rotas
 const rVideos = require("./videos");
-app.use("/videos", rVideos)
+const rHome = require("./home");
+
+app.use("/videos", rVideos);
+app.use("/home", rHome);
 
 app.use(express.static('/site/'));
 
 
 app.use((req, res, next) =>{
-  res.status(404).send({
-    info:{
-      status:'erro 404. verifique a url se esta correto'
-    }
-  });
+      res.set("Content-Type", "text/html");
+      var html = fs.readFileSync("./site/not_found.html", "utf-8");
+      res.send(Buffer.from(html)); 
 });
 
 

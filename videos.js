@@ -18,16 +18,12 @@ router.get("/", (req, res) =>{
       res.set("Content-Type", "text/html");
       var html = fs.readFileSync("./site/video.html", "utf-8");
       html = html.replace("%title", video.nome_v).replace("%title-video", video.nome_v);
-      html = html.replace("%code", video.code);
+      html = html.replace("%code", video.code).replace("%video-id", videoId);;
       res.send(Buffer.from(html));
       
     }else{
       res.set("Content-Type", "text/html");
-      var html = fs.readFileSync("./site/video.html", "utf-8");
-      html = html.replace("%title", "not found").replace("%title-video", "<strong>404</strong>\nNão encontrado.");
-      html = html.replace(`<div class="code">
-    <p>%code</p>
-  </div>`, "");
+      var html = fs.readFileSync("./site/not_found.html", "utf-8");
       res.send(Buffer.from(html));
       
     }
