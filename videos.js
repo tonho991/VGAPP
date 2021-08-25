@@ -14,11 +14,14 @@ router.get("/", (req, res) =>{
 
     if(videoIdExist(keys, snap.val(), videoId)){
       var video = getVideoInfo(keys, snap.val(), videoId);
-     
+      var codeV = "nenhum código utilizado no vídeo."
+      if(video.code){
+        codeV = video.code;
+      }
       res.set("Content-Type", "text/html");
       var html = fs.readFileSync("./site/video.html", "utf-8");
       html = html.replace("%title", video.nome_v).replace("%title-video", video.nome_v);
-      html = html.replace("%code", video.code).replace("%video-id", videoId);;
+      html = html.replace("%code", codeV).replace("%video-id", videoId);;
       res.send(Buffer.from(html));
       
     }else{
