@@ -9,7 +9,7 @@ const db = getFirebase().database();
 const rVideos = require("./videos");
 const rHome = require("./home");
 
-app.use("/videos", rVideos);
+app.use("/video", rVideos);
 app.use("/home", rHome);
 
 app.use(express.static('/site/'));
