@@ -36,6 +36,9 @@ router.get("/", (req, res) =>{
  
 });
 
+
+
+
 function videoIdExist(keys, json, id){
   for(var i = 0; i < keys.length; i++){
     var idV = json[keys[i]].url_v.replace("https://youtu.be/", "");
@@ -46,16 +49,7 @@ function videoIdExist(keys, json, id){
   return false;
 }
 
-function getVideoCode(keys, json, id){
-  for(var i = 0; i < keys.length; i++){
-    var idV = json[keys[i]].url_v.replace("https://youtu.be/", "");
-    var code = json[keys[i]].code;
-    if(idV === id){
-      return code;
-    }
-  }
-  return "";
-}
+
 function getVideoInfo(keys, json, id){
   for(var i = 0; i < keys.length; i++){
     var idV = json[keys[i]].url_v.replace("https://youtu.be/", "");
@@ -67,4 +61,10 @@ function getVideoInfo(keys, json, id){
   return "";
 }
 
+function generateClass() {
+  return 'yxxx-xxxxx-xxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 module.exports = router;

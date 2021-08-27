@@ -27,8 +27,11 @@ function getFirebase(){
 function getDatabase(){
     return firebase.database();
 }
-
+function getStorage(){
+  return firebase.storage();
+}
 module.exports = {
   getDatabase,
-  getFirebase
+  getFirebase,
+  getStorage
 };
