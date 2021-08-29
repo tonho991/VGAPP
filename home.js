@@ -18,16 +18,16 @@ router.get("/", (req, res) =>{
 
 
 
-function getDivVideos(id){
+function getDivVideos(keys, json){
   var divV = "";
   for(var i = 0; i < keys.length; i++){
      var video = json[keys[i]];
      var idV = video.url_v.replace("https://youtu.be/", "");
      divV += `
   <div class="${generateClass()}">
-    <div onclick="window.open('https://vgapp-site.herokuapp.com/videos?id=${idV}','_self')" style="background:rgb(196,190,222);padding:8px;margin-bottom:20px;border-radius:5px;">
+    <div onclick="window.open('https://vgapp-site.herokuapp.c/video?id=${idV}','_self')" style="background:#dddbe6;padding:8px;margin-style:solid;border-color:#bcbcbc;margin-bottom:20px;border-radius:5px;">
      <img src="https://i.ytimg.com/vi/${idV}/default.jpg"/><br>
-     <p class="title">${video.nome_v}</p>
+     <p class="vidtitle">${video.nome_v}</p>
     </div>
   <div>
  
