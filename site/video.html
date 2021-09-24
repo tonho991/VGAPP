@@ -40,15 +40,9 @@
     .code{
      border-style: solid;
      border-color:#426ac6;
-     padding: 8px;
      margin-bottom: 20px;
      border-radius: 5px;
      font-size: 15px;
-     overflow-x: scroll;
-     background:#484848;
-     color:#eaeaea;
-     font-family: bold;
-     text-align: left;
      margin-bottom: 30px;
     }
     .header-title{
@@ -62,6 +56,10 @@
       border: 0px;
     }
   </style>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  
+
 </head>
 
 <body>
@@ -71,12 +69,17 @@
 <div class="content">
   <h2 class="title-video">%title-video</h2>
   <p class="header-title">Código:</p>
-  <div class="code">
-    <p>%code</p>
-  </div>
+  <pre>
+      <code>
+         %code
+      <code>
+   </pre>
+
+  
   <p class="header-title">Vídeo:</p>
   <iframe class="youtube-player" width="100%" height="200" src="https://www.youtube.com/embed/%video-id"></iframe>
 </div>
-    
+    <script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 </html>
